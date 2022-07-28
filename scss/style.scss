@@ -1,0 +1,153 @@
+@import 'font';
+@import 'queries';
+
+* {
+    padding: 0;
+    margin: 0;
+    color: white;
+
+}
+
+input {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+#top {
+    background: #13CE66;
+    margin-bottom: 5vh;
+    border-bottom: 2px solid rgb(44, 110, 24);
+
+    header {
+        height: 15vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+
+        #searchIcon,
+        #addIcon {
+            color: white;
+            font-size: 1.5rem;
+        }
+    }
+
+    #addUser {
+
+        form {
+            margin-bottom: 5vh;
+            #wrapper {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+
+            input {
+                color: black;
+                display: block;
+            }
+
+            #submit {
+                margin-top: 6vh;
+                background: #1197E4;
+                color: white;
+                border-radius: 5px;
+                border: none;
+                padding: 0.7rem;
+                box-shadow: 1px 1px black;
+                margin: 0 auto;
+            }
+        }
+
+    }
+
+
+}
+
+main {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+
+
+    #leftSide {
+        flex: 2;
+        background: #13CE66;
+        border-radius: 5px;
+        border: 1px solid rgb(44, 110, 24);
+
+
+        #userArea>div {
+            border-bottom: 2px dotted rgb(44, 110, 24);
+        }
+
+        #userArea {
+
+            div {
+                flex: 2;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+                padding: 1rem 0;
+            }
+
+            .buttonClass {
+                flex: 1;
+
+                :nth-child(1) {
+                    background-color: #10dbdb;
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    border: none;
+                    box-shadow: 1px 1px black;
+                }
+
+                :nth-child(2) {
+                    background-color: #FFC300;
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    border: none;
+                    box-shadow: 1px 1px black;
+
+                }
+
+                :nth-child(3) {
+                    background-color: #e63419;
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    border: none;
+                    box-shadow: 1px 1px black;
+                }
+            }
+        }
+    }
+
+    aside {
+        flex: 1;
+
+
+        #info {
+            background: #13CE66;
+            text-align: center;
+            margin-left: 2rem;
+            border-radius: 5px;
+            border: 1px solid rgb(44, 110, 24);
+            padding: 1rem 0rem;
+
+        }
+
+        #modifica {
+            background: #13CE66;
+
+        }
+    }
+}
+
+
+
+.hidden {
+    display: none !important;
+}

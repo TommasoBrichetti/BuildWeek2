@@ -1,0 +1,121 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto);
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+#top {
+  background: #13CE66;
+  margin-bottom: 5vh;
+  border-bottom: 2px solid rgb(44, 110, 24);
+}
+#top header {
+  height: 15vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#top header #searchIcon,
+#top header #addIcon {
+  color: white;
+  font-size: 1.5rem;
+}
+#top #addUser form {
+  margin-bottom: 5vh;
+}
+#top #addUser form #wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+#top #addUser form input {
+  color: black;
+  display: block;
+}
+#top #addUser form #submit {
+  margin-top: 6vh;
+  background: #1197E4;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 0.7rem;
+  box-shadow: 1px 1px black;
+  margin: 0 auto;
+}
+
+main {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+}
+main #leftSide {
+  flex: 2;
+  background: #13CE66;
+  border-radius: 5px;
+  border: 1px solid rgb(44, 110, 24);
+}
+main #leftSide #userArea > div {
+  border-bottom: 2px dotted rgb(44, 110, 24);
+}
+main #leftSide #userArea div {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
+}
+main #leftSide #userArea .buttonClass {
+  flex: 1;
+}
+main #leftSide #userArea .buttonClass :nth-child(1) {
+  background-color: #10dbdb;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px black;
+}
+main #leftSide #userArea .buttonClass :nth-child(2) {
+  background-color: #FFC300;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px black;
+}
+main #leftSide #userArea .buttonClass :nth-child(3) {
+  background-color: #e63419;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px black;
+}
+main aside {
+  flex: 1;
+}
+main aside #info {
+  background: #13CE66;
+  text-align: center;
+  margin-left: 2rem;
+  border-radius: 5px;
+  border: 1px solid rgb(44, 110, 24);
+  padding: 1rem 0rem;
+}
+main aside #modifica {
+  background: #13CE66;
+}
+
+.hidden {
+  display: none !important;
+}/*# sourceMappingURL=style.css.map */
