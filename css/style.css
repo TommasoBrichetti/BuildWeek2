@@ -9,6 +9,13 @@
   color: white;
 }
 
+button {
+  cursor: pointer;
+}
+button .button:active {
+  transform: translateY(4px);
+}
+
 input {
   margin: 0.5rem;
   padding: 0.5rem;
@@ -26,10 +33,17 @@ input {
   justify-content: space-around;
   align-items: center;
 }
+#top header #occhio {
+  transition: 1s ease;
+}
+#top header #occhio:hover {
+  transform: rotateX(180deg);
+}
 #top header #searchIcon,
 #top header #addIcon {
   color: white;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 #top #addUser form {
   margin-bottom: 5vh;
@@ -38,6 +52,12 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+@media screen and (max-width: 768px) {
+  #top #addUser form #wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 #top #addUser form input {
   color: black;
@@ -52,6 +72,27 @@ input {
   padding: 0.7rem;
   box-shadow: 1px 1px black;
   margin: 0 auto;
+  cursor: pointer;
+}
+#top #addUser form #submit:hover {
+  box-shadow: none;
+}
+#top #searchUser {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 5vh;
+}
+#top #searchUser input {
+  color: black;
+}
+#top #searchUser button {
+  border: none;
+  background: none;
+  font-size: 2.3rem;
+}
+#top #searchUser button ion-icon:hover {
+  color: #e63419;
 }
 
 main {
@@ -60,11 +101,18 @@ main {
   flex-direction: row;
   width: 90%;
 }
+@media screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding-bottom: 5vh;
+  }
+}
 main #leftSide {
   flex: 2;
   background: #13CE66;
   border-radius: 5px;
   border: 1px solid rgb(44, 110, 24);
+  margin-bottom: auto;
 }
 main #leftSide #userArea > div {
   border-bottom: 2px dotted rgb(44, 110, 24);
@@ -77,8 +125,19 @@ main #leftSide #userArea div {
   align-items: center;
   padding: 1rem 0;
 }
+@media screen and (max-width: 768px) {
+  main #leftSide #userArea div {
+    flex-direction: column;
+  }
+}
 main #leftSide #userArea .buttonClass {
   flex: 1;
+}
+@media screen and (max-width: 768px) {
+  main #leftSide #userArea .buttonClass {
+    display: flex;
+    flex-direction: row;
+  }
 }
 main #leftSide #userArea .buttonClass :nth-child(1) {
   background-color: #10dbdb;
@@ -87,12 +146,19 @@ main #leftSide #userArea .buttonClass :nth-child(1) {
   border: none;
   box-shadow: 1px 1px black;
 }
+main #leftSide #userArea .buttonClass :nth-child(1):hover {
+  box-shadow: none;
+}
 main #leftSide #userArea .buttonClass :nth-child(2) {
   background-color: #FFC300;
   padding: 0.5rem;
   border-radius: 5px;
   border: none;
   box-shadow: 1px 1px black;
+  margin: 0 0.3rem;
+}
+main #leftSide #userArea .buttonClass :nth-child(2):hover {
+  box-shadow: none;
 }
 main #leftSide #userArea .buttonClass :nth-child(3) {
   background-color: #e63419;
@@ -100,6 +166,26 @@ main #leftSide #userArea .buttonClass :nth-child(3) {
   border-radius: 5px;
   border: none;
   box-shadow: 1px 1px black;
+}
+main #leftSide #userArea .buttonClass :nth-child(3):hover {
+  box-shadow: none;
+}
+main #leftSide #controlButton {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #14b45c;
+}
+main #leftSide #controlButton button {
+  display: block;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: none;
+  background: none;
+  font-size: 1.2rem;
 }
 main aside {
   flex: 1;
@@ -112,10 +198,167 @@ main aside #info {
   border: 1px solid rgb(44, 110, 24);
   padding: 1rem 0rem;
 }
+@media screen and (max-width: 768px) {
+  main aside #info {
+    margin-left: 0;
+    margin-top: 5vh;
+  }
+}
 main aside #modifica {
   background: #13CE66;
+}
+@media screen and (max-width: 768px) {
+  main aside #modifica {
+    margin-left: 0;
+    margin-top: 5vh;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 50, 0, 0.4);
+}
+
+.modalBox {
+  width: 60%;
+  margin: 15% auto;
+  background-color: white;
+  height: 30vh;
+  border-radius: 5px;
+  box-shadow: 1px 1px black;
+}
+
+.modalH {
+  background: #13CE66;
+  height: 7vh;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalText {
+  color: black;
+  margin: 5vh 0;
+}
+
+.modalBt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.modalBt button {
+  display: block;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: none;
+}
+.modalBt :nth-child(1) {
+  background: #e63419;
+}
+.modalBt :nth-child(2) {
+  background: #10dbdb;
 }
 
 .hidden {
   display: none !important;
+}
+
+#modifica {
+  margin-left: 2rem;
+  border-radius: 5px;
+}
+#modifica button {
+  display: block;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: none;
+  float: right;
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+  background-color: #FFC300;
+  box-shadow: 1px 1px black;
+}
+#modifica button:hover {
+  box-shadow: none;
+}
+#modifica input {
+  color: black;
+}
+
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 50, 0, 0.4);
+}
+
+.ModalBox {
+  width: 60%;
+  margin: 15% auto;
+  background-color: white;
+  height: 30vh;
+  border-radius: 5px;
+  box-shadow: 1px 1px black;
+}
+
+.ModalH {
+  background: #13CE66;
+  height: 7vh;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.ModalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ModalText {
+  color: black;
+  margin: 5vh 0;
+}
+
+.ModalBt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.ModalBt button {
+  display: block;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: none;
+  background: #10dbdb;
+}
+
+#credits {
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgb(44, 110, 24);
+  border-radius: 5px;
+}
+#credits h2 {
+  color: black;
+  margin: 1rem 0;
+  transition: transform 0.7s ease;
+}
+#credits h2:hover {
+  color: red;
+  zoom: 120%;
 }/*# sourceMappingURL=style.css.map */

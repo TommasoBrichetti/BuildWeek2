@@ -12,51 +12,57 @@
 <body>
     <div id="top">
         <header>
-            <h1>Account</h1>
+            <h1>Acc<a href="crediti.html"><ion-icon name="eye" id="occhio"></a></ion-icon>unt</h1>
 
-            
-            <span id="searchIcon"><ion-icon name="search"></ion-icon></span>
-            <span id="addIcon"><ion-icon name="person-add"></ion-icon></span>
-            
+
+            <span id="searchIcon">
+                <ion-icon name="search"></ion-icon>
+            </span>
+            <span id="addIcon">
+                <ion-icon name="person-add"></ion-icon>
+            </span>
+
         </header>
         <div id="addUser" class="hidden">
             <!-- hidden -->
             <form action="">
                 <div id="wrapper">
-                <div id="formDiv1">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <div id="formDiv1">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Name" required>
 
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Username" required>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Username" required>
 
-                    <label for="mail">Email</label>
-                    <input type="email" id="mail" name="mail" placeholder="Email" required>
+                        <label for="mail">Email</label>
+                        <input type="email" id="mail" name="mail" placeholder="Email" required>
 
-                    <label for="street">Street</label>
-                    <input type="text" id="street" name="street" placeholder="Street" required>
+                        <label for="street">Street</label>
+                        <input type="text" id="street" name="street" placeholder="Street" required>
+                    </div>
+                    <div id="formDiv2">
+                        <label for="suite">Suite</label>
+                        <input type="text" id="suite" name="Suite" placeholder="Suite" required>
+
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="text" placeholder="City" required>
+
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone" required placeholder="Phone">
+
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" required placeholder="website">
+
+                    </div>
                 </div>
-                <div id="formDiv2">
-                    <label for="suite">Suite</label>
-                    <input type="text" id="text" name="Suite" placeholder="Suite" required>
-
-                    <label for="city">City</label>
-                    <input type="text" id="text" name="text" placeholder="City" required>
-
-                    <label for="phone">Phone</label>
-                    <input type="number" id="phone" name="phone" required placeholder="Phone">
-
-                    <label for="website">Website</label>
-                    <input type="text" id="website" name="website" required placeholder="website">
-                
-                </div>
-                </div>
-                <input type="submit" id="submit" value="submit">
+                <input type="submit" id="submit" value="Aggiungi">
             </form>
         </div>
         <div id="searchUser" class="hidden">
-            <input type="text">
-            <button>search</button>
+            <input type="text" id="searchInput" value="" placeholder="Search">
+            <button id="searchBt">
+                <ion-icon name="close-circle"></ion-icon>
+            </button>
         </div>
     </div>
     <main>
@@ -65,6 +71,24 @@
             <div id="userArea">
 
             </div>
+            <div id="controlButton">
+                <button id="previousButton">
+                    <ion-icon name="arrow-undo"></ion-icon>
+                </button>
+                <button id="nextButton">
+                    <ion-icon name="arrow-redo"></ion-icon>
+                </button>
+            
+            
+                <button id="srcBtnP" class="hidden">
+                    <ion-icon id="icon1" name="arrow-undo"></ion-icon>
+                </button>
+                <button id="srcBtnN" class="hidden">
+                    <ion-icon id="icon2" name="arrow-redo"></ion-icon>
+                </button>
+            
+            </div>
+
         </div>
 
         <aside>
@@ -72,12 +96,67 @@
 
             </div>
 
-            <div id="modifica">
+            <div id="modifica" class="hidden">
+               
+                    
+                    <input type="text" id="ename" name="name" placeholder="Name" required>
 
+                    
+                    <input type="text" id="eusername" name="username" placeholder="Username" required>
+
+                    
+                    <input type="email" id="email" name="mail" placeholder="Email" required>
+
+                    
+                    <input type="text" id="estreet" name="street" placeholder="Street" required>
+
+                    
+                    <input type="text" id="esuite" name="Suite" placeholder="Suite" required>
+
+                    
+                    <input type="text" id="ecity" name="text" placeholder="City" required>
+
+                    
+                    <input type="text" id="ephone" name="phone" required placeholder="Phone">
+
+                    
+                    <input type="text" id="ewebsite" name="website" required placeholder="website">
+
+                    <button id="modBt">Modifica</button>
+                
             </div>
         </aside>
 
     </main>
+
+
+    <div class="modal hidden">
+        <div class="modalBox">
+            <div class="modalH"></div>
+            <div class="modalBody">
+                <p class="modalText">Vuoi procedere con l'azione?</p>
+                <div class="modalBt">
+                    <button id="annulla">Annulla</button>
+                    <button id="accetta">Accetta</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- modale modifica-->
+    <div class="Modal hidden">
+        <div class="ModalBox">
+            <div class="ModalH"></div>
+            <div class="ModalBody">
+                <p class="ModalText">Hai modificato l'utente</p>
+                <div class="ModalBt">
+                    <button id="AccettaM">Ok</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

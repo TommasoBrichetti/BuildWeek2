@@ -7,7 +7,13 @@
     color: white;
 
 }
+button{
+    cursor: pointer;
 
+.button:active {
+  transform: translateY(4px);
+}
+}
 input {
     margin: 0.5rem;
     padding: 0.5rem;
@@ -25,11 +31,18 @@ input {
         justify-content: space-around;
         align-items: center;
 
+        #occhio{
+            transition: 1s ease;
+        }
+        #occhio:hover{
+            transform: rotateX(180deg);
+        }
 
         #searchIcon,
         #addIcon {
             color: white;
             font-size: 1.5rem;
+            cursor: pointer;
         }
     }
 
@@ -37,10 +50,15 @@ input {
 
         form {
             margin-bottom: 5vh;
+
             #wrapper {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-evenly;
+                @include tablet {
+                    flex-direction: column;
+                    align-items: center;
+                }
             }
 
             input {
@@ -57,9 +75,32 @@ input {
                 padding: 0.7rem;
                 box-shadow: 1px 1px black;
                 margin: 0 auto;
+                cursor: pointer;
+            }
+            #submit:hover{
+                box-shadow: none;
             }
         }
 
+    }
+
+    #searchUser{
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 5vh;
+        input{
+            color: black;
+        }
+        button{
+            border: none;
+            background: none;
+            font-size: 2.3rem;
+            
+            ion-icon:hover{
+                color: #e63419;
+            }
+        }
     }
 
 
@@ -71,12 +112,18 @@ main {
     flex-direction: row;
     width: 90%;
 
+    @include tablet{
+        flex-direction: column;
+        padding-bottom: 5vh;
+    }
+
 
     #leftSide {
         flex: 2;
         background: #13CE66;
         border-radius: 5px;
         border: 1px solid rgb(44, 110, 24);
+        margin-bottom: auto;
 
 
         #userArea>div {
@@ -92,10 +139,17 @@ main {
                 justify-content: space-around;
                 align-items: center;
                 padding: 1rem 0;
+                @include tablet{
+                    flex-direction: column;
+                }
             }
 
             .buttonClass {
                 flex: 1;
+                @include tablet{
+                    display: flex;
+                    flex-direction: row;
+                }
 
                 :nth-child(1) {
                     background-color: #10dbdb;
@@ -104,6 +158,9 @@ main {
                     border: none;
                     box-shadow: 1px 1px black;
                 }
+                :nth-child(1):hover {
+                    box-shadow: none;
+                }
 
                 :nth-child(2) {
                     background-color: #FFC300;
@@ -111,7 +168,11 @@ main {
                     border-radius: 5px;
                     border: none;
                     box-shadow: 1px 1px black;
+                    margin: 0 0.3rem
 
+                }
+                :nth-child(2):hover {
+                    box-shadow: none;
                 }
 
                 :nth-child(3) {
@@ -121,13 +182,39 @@ main {
                     border: none;
                     box-shadow: 1px 1px black;
                 }
+                :nth-child(3):hover {
+                    box-shadow: none;
+                }
             }
+            
+        }
+
+        #controlButton {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.5rem auto;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background: #14b45c;
+
+            button {
+                display: block;
+                border-radius: 5px;
+                padding: 0.5rem;
+                border: none;
+                background: none;
+                font-size: 1.2rem;
+            }
+          
         }
     }
 
     aside {
         flex: 1;
 
+        @include tablet{
+        }
 
         #info {
             background: #13CE66;
@@ -136,18 +223,186 @@ main {
             border-radius: 5px;
             border: 1px solid rgb(44, 110, 24);
             padding: 1rem 0rem;
+            @include tablet{
+                margin-left: 0;
+                margin-top: 5vh;
+            }
 
         }
 
         #modifica {
-            background: #13CE66;
-
+            background:  #13CE66;
+            @include tablet{
+                margin-left: 0;
+                margin-top: 5vh;
+            }
         }
+     
     }
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 50, 0, 0.4);
+}
 
+.modalBox {
+    width: 60%;
+    margin: 15% auto;
+    background-color: white;
+    height: 30vh;
+    border-radius: 5px;
+    box-shadow: 1px 1px black;
+
+}
+
+.modalH {
+    background: #13CE66;
+    height: 7vh;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modalBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modalText {
+    color: black;
+    margin: 5vh 0;
+}
+
+.modalBt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+
+    button {
+        display: block;
+        border-radius: 5px;
+        padding: 0.5rem;
+        border: none;
+    }
+
+    :nth-child(1) {
+        background: #e63419;
+    }
+
+    :nth-child(2) {
+        background: #10dbdb;
+    }
+
+}
 
 .hidden {
     display: none !important;
 }
+
+//modifica
+
+#modifica{
+    margin-left: 2rem;
+    border-radius: 5px;
+
+    button {
+        display: block;
+        border-radius: 5px;
+        padding: 0.5rem;
+        border: none;
+        float: right;
+        margin-right: 2rem;
+        margin-top: 0.5rem;
+        background-color: #FFC300;
+        box-shadow: 1px 1px black;;
+        
+    }
+    button:hover{
+        box-shadow: none;
+    }
+    input {
+        color: black;
+    }
+}
+
+
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 50, 0, 0.4);
+}
+
+.ModalBox {
+    width: 60%;
+    margin: 15% auto;
+    background-color: white;
+    height: 30vh;
+    border-radius: 5px;
+    box-shadow: 1px 1px black;
+
+}
+
+.ModalH {
+    background: #13CE66;
+    height: 7vh;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.ModalBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ModalText {
+    color: black;
+    margin: 5vh 0;
+}
+
+.ModalBt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+
+    button {
+        display: block;
+        border-radius: 5px;
+        padding: 0.5rem;
+        border: none;
+        background: #10dbdb;
+    }
+}
+
+
+// --------------------------------------------------------------------------
+
+#credits{
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgb(44, 110, 24);
+    border-radius: 5px;
+    h2{
+        color: black;
+        margin: 1rem 0 ;
+        transition: transform .7s ease;
+        
+    }
+    h2:hover{
+        color: red;
+        zoom: 120%;
+    }
+} 
+
